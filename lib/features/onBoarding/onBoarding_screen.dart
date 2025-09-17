@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/core/theming/styles.dart';
 import 'package:flutter_application/features/onBoarding/widgets/doctor_image_and_text.dart';
 import 'package:flutter_application/features/onBoarding/widgets/logo_and_title.dart';
 import 'package:flutter_application/features/onBoarding/widgets/text_and_button.dart';
