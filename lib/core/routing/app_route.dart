@@ -7,6 +7,7 @@ import 'package:flutter_application/features/onBoarding/onBoarding_screen.dart';
 
 class AppRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
+    final args = settings.arguments;
     switch (settings.name) {
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
