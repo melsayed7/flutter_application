@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/core/routing/routes.dart';
-import 'package:flutter_application/features/auth/login_screen.dart';
-import 'package:flutter_application/features/auth/register_screen.dart';
+import 'package:flutter_application/features/auth/ui/login_screen.dart';
+import 'package:flutter_application/features/auth/ui/register_screen.dart';
 import 'package:flutter_application/features/home/home_screen.dart';
 import 'package:flutter_application/features/onBoarding/onBoarding_screen.dart';
 
@@ -12,7 +12,7 @@ class AppRoute {
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
       case Routes.login:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(builder: (_) => LoginScreen());
       case Routes.register:
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       // case Routes.forgotPassword:
