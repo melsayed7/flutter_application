@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/core/di/dependency_injection.dart';
 import 'package:flutter_application/core/routing/routes.dart';
+import 'package:flutter_application/features/auth/logic/cubit/login_cubit.dart';
 import 'package:flutter_application/features/auth/ui/login_screen.dart';
 import 'package:flutter_application/features/auth/ui/register_screen.dart';
 import 'package:flutter_application/features/home/home_screen.dart';
 import 'package:flutter_application/features/onBoarding/onBoarding_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -12,7 +15,11 @@ class AppRoute {
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
       case Routes.login:
-        return MaterialPageRoute(builder: (_) => LoginScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<LoginCubit>(),
+                  child: LoginScreen(),
+                ));
       case Routes.register:
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       // case Routes.forgotPassword:
