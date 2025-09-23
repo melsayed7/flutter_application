@@ -6,7 +6,7 @@ import 'package:flutter_application/core/routing/app_route.dart';
 import 'package:flutter_application/doc_app.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupGetIt();
   await ScreenUtil.ensureScreenSize();
@@ -15,10 +15,10 @@ void main() async{
 }
 
 checkIfLoggedInUser() async {
-
   String? userToken =
-  await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
-  if (!userToken!.isNotEmpty) {
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+
+  if (userToken != null && userToken.isNotEmpty) {
     isLoggedInUser = true;
   } else {
     isLoggedInUser = false;
