@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/core/di/dependency_injection.dart';
 import 'package:flutter_application/core/routing/routes.dart';
-import 'package:flutter_application/features/auth/logic/cubit/login_cubit.dart';
+import 'package:flutter_application/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:flutter_application/features/auth/ui/login_screen.dart';
 import 'package:flutter_application/features/auth/ui/register_screen.dart';
 import 'package:flutter_application/features/home/home_screen.dart';
@@ -17,11 +17,15 @@ class AppRoute {
       case Routes.login:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => getIt<LoginCubit>(),
+                  create: (context) => getIt<AuthCubit>(),
                   child: LoginScreen(),
                 ));
       case Routes.register:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<AuthCubit>(),
+                  child: RegisterScreen(),
+                ));
       // case Routes.forgotPassword:
       //   return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
       case Routes.home:

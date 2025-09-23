@@ -7,12 +7,16 @@ class CustomTextFormField extends StatefulWidget {
   final String hintText;
   final bool isObscure;
   final String? Function(String?)? validator;
+  final TextEditingController? controller;
+  final TextInputType? keyboardType;
 
   CustomTextFormField({
     super.key,
     required this.hintText,
     this.validator,
     this.isObscure = false,
+    this.controller,
+    this.keyboardType,
   });
 
   @override
@@ -24,6 +28,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
+      keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         fillColor: AppColors.lightColor,
         filled: true,
@@ -37,6 +43,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           borderRadius: BorderRadius.circular(16),
           borderSide:
               const BorderSide(color: AppColors.lighterGrayColor, width: 1.3),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: Colors.red, width: 1.3),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: Colors.red, width: 1.3),
         ),
         hintText: widget.hintText,
         hintStyle: AppStyles.font14Gray400Weight.copyWith(

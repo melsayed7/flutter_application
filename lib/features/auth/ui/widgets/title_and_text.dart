@@ -3,7 +3,9 @@ import 'package:flutter_application/core/theming/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TitleAndText extends StatelessWidget {
-  const TitleAndText({super.key});
+  final String title;
+  final String text;
+  TitleAndText({super.key, required this.title, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +13,12 @@ class TitleAndText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Welcome Back',
+          title,
           style: AppStyles.font32Blue700Weight,
         ),
         SizedBox(height: 8.h),
         Text(
-          'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
+          text,
           style: AppStyles.font14Gray400Weight,
         ),
       ],

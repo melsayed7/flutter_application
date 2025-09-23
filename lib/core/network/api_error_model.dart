@@ -6,10 +6,12 @@ part 'api_error_model.g.dart';
 class ApiErrorModel {
   final String? message;
   final int? code;
+  final Map<String, dynamic>? data;
 
   ApiErrorModel({
     this.message,
     this.code,
+    this.data,
   });
 
   factory ApiErrorModel.fromJson(Map<String, dynamic> json) =>
