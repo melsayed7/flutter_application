@@ -1,3 +1,6 @@
+import 'package:flutter_application/core/helper/app_constant.dart';
+import 'package:flutter_application/core/helper/shared_pref.dart';
+import 'package:flutter_application/core/network/dio_factory.dart';
 import 'package:flutter_application/features/auth/data/models/login_request_body.dart';
 import 'package:flutter_application/features/auth/data/models/register_request_body.dart';
 import 'package:flutter_application/features/auth/data/repo/auth_repo.dart';
@@ -13,13 +16,19 @@ class AuthCubit extends Cubit<AuthState> {
     emit(const AuthState.loading());
     final result = await _authRepo.login(loginRequestBody);
     result.when(
-      success: (data) {
+      success: (data) async  {
+       await  saveUserToken(data.userData?.token ?? '');
         emit(AuthState.loaded(data));
       },
       failure: (errorHandler) {
         emit(AuthState.error(errorHandler.apiErrorModel.message ?? ''));
       },
     );
+  }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 
   void register(RegisterRequestBody registerRequestBody) async {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/core/helper/extensions.dart';
+import 'package:flutter_application/core/routing/routes.dart';
 import 'package:flutter_application/core/theming/app_colors.dart';
 import 'package:flutter_application/core/theming/styles.dart';
 
@@ -25,7 +27,9 @@ class RememberAndForgotPassword extends StatelessWidget {
           ],
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(Routes.forgotPassword);
+          },
           child: Text('Forgot Password?', style: AppStyles.font13BlueRegular),
         ),
       ],
