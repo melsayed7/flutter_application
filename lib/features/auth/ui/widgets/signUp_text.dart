@@ -1,8 +1,19 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/core/helper/extensions.dart';
+import 'package:flutter_application/core/routing/routes.dart';
 import 'package:flutter_application/core/theming/styles.dart';
 
 class SignUpText extends StatelessWidget {
-  const SignUpText({super.key});
+  final String title;
+  final String text;
+  final GestureRecognizer recognizer;
+
+  const SignUpText(
+      {super.key,
+      required this.title,
+      required this.text,
+      required this.recognizer});
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +22,12 @@ class SignUpText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: "Already have an account? ",
+            text: title,
             style: AppStyles.font13DarkBlueRegular,
           ),
           TextSpan(
-            text: 'Sign Up',
+            recognizer: recognizer,
+            text: text,
             style: AppStyles.font13BlueSemiBold,
           ),
         ],
