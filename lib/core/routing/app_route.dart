@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/core/di/dependency_injection.dart';
 import 'package:flutter_application/core/routing/routes.dart';
 import 'package:flutter_application/features/auth/logic/cubit/auth_cubit.dart';
+import 'package:flutter_application/features/auth/ui/forget_password_screen.dart';
 import 'package:flutter_application/features/auth/ui/login_screen.dart';
 import 'package:flutter_application/features/auth/ui/register_screen.dart';
 import 'package:flutter_application/features/home/home_screen.dart';
@@ -26,8 +27,8 @@ class AppRoute {
                   create: (context) => getIt<AuthCubit>(),
                   child: RegisterScreen(),
                 ));
-      // case Routes.forgotPassword:
-      //   return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
+      case Routes.forgotPassword:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
       case Routes.home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
