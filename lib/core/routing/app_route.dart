@@ -5,7 +5,7 @@ import 'package:flutter_application/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:flutter_application/features/auth/ui/forget_password_screen.dart';
 import 'package:flutter_application/features/auth/ui/login_screen.dart';
 import 'package:flutter_application/features/auth/ui/register_screen.dart';
-import 'package:flutter_application/features/home/home_screen.dart';
+import 'package:flutter_application/features/home/ui/home_screen.dart';
 import 'package:flutter_application/features/onBoarding/onBoarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
