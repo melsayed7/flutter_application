@@ -3,11 +3,13 @@ import 'package:flutter_application/core/helper/spacing.dart';
 import 'package:flutter_application/core/theming/app_colors.dart';
 import 'package:flutter_application/core/theming/app_images.dart';
 import 'package:flutter_application/core/theming/styles.dart';
+import 'package:flutter_application/features/home/data/model/specializations_response_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeDoctorSpecialityList extends StatelessWidget {
-  const HomeDoctorSpecialityList({super.key});
+  final List<SpecializationsData> specializationsDataList ;
+  const HomeDoctorSpecialityList({super.key, required this.specializationsDataList});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +17,16 @@ class HomeDoctorSpecialityList extends StatelessWidget {
       height: 100.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 6,
+        itemCount: specializationsDataList.length,
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 24.w),
-          child: customDoctorWidget(),
+          child: customDoctorWidget(specializationsDataList[index]),
         ),
       ),
     );
   }
 
-  Widget customDoctorWidget() {
+  Widget customDoctorWidget(SpecializationsData specializationsDataItem) {
     return Column(
       children: [
         CircleAvatar(
@@ -38,7 +40,7 @@ class HomeDoctorSpecialityList extends StatelessWidget {
         ),
         heightSpace(12.h),
         Text(
-          'General',
+          specializationsDataItem.name,
           style: AppStyles.font12DarkBlueRegular,
         )
       ],

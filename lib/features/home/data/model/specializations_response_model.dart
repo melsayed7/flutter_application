@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '';
+part 'specializations_response_model.g.dart';
 
 @JsonSerializable()
 class SpecializationsResponseModel {

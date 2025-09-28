@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_application/core/network/api_services.dart';
 import 'package:flutter_application/core/network/dio_factory.dart';
 import 'package:flutter_application/features/auth/data/repo/auth_repo.dart';
+import 'package:flutter_application/features/home/data/repo/home_repo.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_application/features/auth/logic/cubit/auth_cubit.dart';
 
@@ -15,4 +16,8 @@ Future<void> setupGetIt() async {
 //login + register
   getIt.registerLazySingleton<AuthRepo>(() => AuthRepo(getIt()));
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt()));
+
+//home
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
+
 }
