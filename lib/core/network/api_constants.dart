@@ -4,6 +4,7 @@ class ApiConstants {
   static const String registerEndpoint = 'auth/register';
   static const String forgotPasswordEndpoint = 'auth/forgot-password';
   static const String logoutEndpoint = 'auth/logout';
+  static const String specialization = 'specialization/index';
 }
 
 class ApiErrors {
