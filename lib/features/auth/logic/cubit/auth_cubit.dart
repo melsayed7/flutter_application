@@ -20,8 +20,8 @@ class AuthCubit extends Cubit<AuthState> {
        await  saveUserToken(data.userData?.token ?? '');
         emit(AuthState.loaded(data));
       },
-      failure: (errorHandler) {
-        emit(AuthState.error(errorHandler.apiErrorModel.message ?? ''));
+      failure: (apiErrorModel) {
+        emit(AuthState.error(apiErrorModel));
       },
     );
   }
@@ -38,8 +38,8 @@ class AuthCubit extends Cubit<AuthState> {
       success: (data) {
         emit(AuthState.loaded(data));
       },
-      failure: (errorHandler) {
-        emit(AuthState.error(errorHandler.apiErrorModel.message ?? ''));
+      failure: (apiErrorModel) {
+        emit(AuthState.error(apiErrorModel));
       },
     );
   }

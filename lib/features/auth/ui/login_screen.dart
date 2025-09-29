@@ -59,12 +59,12 @@ class LoginScreen extends StatelessWidget {
                   // Show success message
                   context.pushNamed(Routes.home);
                 },
-                error: (errorMessage) {
+                error: (apiErrorModel) {
                   // Hide loading indicator
                   Navigator.of(context).pop();
                   // Show error message
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(errorMessage)),
+                    SnackBar(content: Text(apiErrorModel.getAllErrorMessages())),
                   );
                 },
               );

@@ -63,12 +63,12 @@ class RegisterScreen extends StatelessWidget {
                     // Show success message
                     context.pushNamed(Routes.login);
                   },
-                  error: (errorMessage) {
+                  error: (apiErrorModel) {
                     // Hide loading indicator
                     Navigator.of(context).pop();
                     // Show error message
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(errorMessage)),
+                      SnackBar(content: Text(apiErrorModel.getAllErrorMessages())),
                     );
                   },
                 );
