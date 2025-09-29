@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/core/helper/spacing.dart';
-import 'package:flutter_application/core/theming/app_images.dart';
 import 'package:flutter_application/core/theming/styles.dart';
-import 'package:flutter_application/features/home/logic/home_cubit.dart';
-import 'package:flutter_application/features/home/logic/home_state.dart';
 import 'package:flutter_application/features/home/ui/widgets/doctor/doctors_bloc_builder.dart';
 import 'package:flutter_application/features/home/ui/widgets/home_doctor_container.dart';
-import 'package:flutter_application/features/home/ui/widgets/doctor/home_doctor_list.dart';
-import 'package:flutter_application/features/home/ui/widgets/specialization/home_speciality_list.dart';
 import 'package:flutter_application/features/home/ui/widgets/home_tap_bar.dart';
 import 'package:flutter_application/features/home/ui/widgets/specialization/speciality_bloc_builder.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

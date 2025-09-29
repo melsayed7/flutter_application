@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                   // Hide loading indicator
                   Navigator.of(context).pop();
                   // Show success message
-                  context.pushNamed(Routes.home);
+                  context.pushNamed(Routes.layout);
                 },
                 error: (apiErrorModel) {
                   // Hide loading indicator

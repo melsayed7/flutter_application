@@ -50,7 +50,7 @@ class HomeDoctorContainer extends StatelessWidget {
             right: 8.w,
             top: 0,
             child: Image.asset(
-              AppImages.doctordHome,
+              AppImages.doctorHome,
               height: 200.h,
             ),
           )

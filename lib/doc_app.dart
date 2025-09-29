@@ -21,7 +21,7 @@ class DocApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           //initialRoute: Routes.register,
-          initialRoute: isLoggedInUser ? Routes.home : Routes.login,
+          initialRoute: isLoggedInUser ? Routes.layout : Routes.login,
           onGenerateRoute: AppRoute.generateRoute,
         ));
   }
