@@ -17,7 +17,7 @@ class AuthRepo {
       final result = await _apiServices.login(loginRequestBody);
       return ApiResult.success(result);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 
@@ -27,7 +27,7 @@ class AuthRepo {
       final result = await _apiServices.register(registerRequestBody);
       return ApiResult.success(result);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

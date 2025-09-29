@@ -21,7 +21,7 @@ mixin _$AuthState<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$AuthState<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$AuthState<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return initial();
   }
@@ -144,7 +144,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return initial?.call();
   }
@@ -155,7 +155,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -250,7 +250,7 @@ class _$AuthLoadingImpl<T> implements AuthLoading<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loading();
   }
@@ -261,7 +261,7 @@ class _$AuthLoadingImpl<T> implements AuthLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loading?.call();
   }
@@ -272,7 +272,7 @@ class _$AuthLoadingImpl<T> implements AuthLoading<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -395,7 +395,7 @@ class _$AuthLoadedImpl<T> implements AuthLoaded<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
     return loaded(data);
   }
@@ -406,7 +406,7 @@ class _$AuthLoadedImpl<T> implements AuthLoaded<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
     return loaded?.call(data);
   }
@@ -417,7 +417,7 @@ class _$AuthLoadedImpl<T> implements AuthLoaded<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -482,7 +482,7 @@ abstract class _$$AuthErrorImplCopyWith<T, $Res> {
           _$AuthErrorImpl<T> value, $Res Function(_$AuthErrorImpl<T>) then) =
       __$$AuthErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String message});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -498,13 +498,13 @@ class __$$AuthErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$AuthErrorImpl<T>(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -512,14 +512,14 @@ class __$$AuthErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$AuthErrorImpl<T> implements AuthError<T> {
-  const _$AuthErrorImpl(this.message);
+  const _$AuthErrorImpl(this.apiErrorModel);
 
   @override
-  final String message;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'AuthState<$T>.error(message: $message)';
+    return 'AuthState<$T>.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -527,11 +527,12 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthErrorImpl<T> &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -547,9 +548,9 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
   }) {
-    return error(message);
+    return error(apiErrorModel);
   }
 
   @override
@@ -558,9 +559,9 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
   }) {
-    return error?.call(message);
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -569,11 +570,11 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(message);
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -617,9 +618,10 @@ class _$AuthErrorImpl<T> implements AuthError<T> {
 }
 
 abstract class AuthError<T> implements AuthState<T> {
-  const factory AuthError(final String message) = _$AuthErrorImpl<T>;
+  const factory AuthError(final ApiErrorModel apiErrorModel) =
+      _$AuthErrorImpl<T>;
 
-  String get message;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.

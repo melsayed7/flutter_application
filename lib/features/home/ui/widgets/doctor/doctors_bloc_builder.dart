@@ -22,7 +22,7 @@ class DoctorsBlocBuilder extends StatelessWidget {
                 doctorModel: doctorsModel,
             );
           },
-          doctorsError: (errorHandler) => const SizedBox.shrink(),
+          doctorsError: () => const SizedBox.shrink(),
           orElse: () => const SizedBox.shrink(),
         );
       },
