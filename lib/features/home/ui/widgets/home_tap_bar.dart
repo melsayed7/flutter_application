@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/core/helper/extensions.dart';
+import 'package:flutter_application/core/routing/routes.dart';
 import 'package:flutter_application/core/theming/app_colors.dart';
 import 'package:flutter_application/core/theming/app_images.dart';
 import 'package:flutter_application/core/theming/styles.dart';
@@ -25,9 +27,14 @@ class HomeTapBarWidget extends StatelessWidget {
             ),
           ],
         ),
-        CircleAvatar(
-            backgroundColor: AppColors.moreLighterGray,
-            child: SvgPicture.asset(AppImages.notifications)),
+        GestureDetector(
+          onTap: () {
+            context.pushNamed(Routes.notification);
+          },
+          child: CircleAvatar(
+              backgroundColor: AppColors.moreLighterGray,
+              child: SvgPicture.asset(AppImages.notifications)),
+        ),
       ],
     );
   }
