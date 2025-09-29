@@ -25,46 +25,46 @@ class HomeDoctorList extends StatelessWidget {
   Widget customDoctorList(DoctorsModel doctorItem) {
     return Row(
       children: [
-        // CachedNetworkImage(
-        //   imageUrl:
-        //   'https://img.freepik.com/premium-photo/3d-animation-style-white-background-doctor_911201-11196.jpg',
-        //   progressIndicatorBuilder: (context, url, downloadProgress) {
-        //     return Shimmer.fromColors(
-        //       baseColor: AppColors.lightGray,
-        //       highlightColor: Colors.white,
-        //       child: Container(
-        //         width: 110.w,
-        //         height: 120.h,
-        //         decoration: BoxDecoration(
-        //           shape: BoxShape.rectangle,
-        //           borderRadius: BorderRadius.circular(12.0),
-        //           color: Colors.white,
-        //         ),
-        //       ),
-        //     );
-        //   },
-        //   imageBuilder: (context, imageProvider) => Container(
-        //     width: 110.w,
-        //     height: 120.h,
-        //     decoration: BoxDecoration(
-        //       shape: BoxShape.rectangle,
-        //       borderRadius: BorderRadius.circular(12.0),
-        //       image: DecorationImage(
-        //         image: imageProvider,
-        //         fit: BoxFit.cover,
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(12.0),
-          child: Image.network(
+        CachedNetworkImage(
+          imageUrl:
+          'https://img.freepik.com/premium-photo/3d-animation-style-white-background-doctor_911201-11196.jpg',
+          progressIndicatorBuilder: (context, url, downloadProgress) {
+            return Shimmer.fromColors(
+              baseColor: AppColors.lightGray,
+              highlightColor: Colors.white,
+              child: Container(
+                width: 110.w,
+                height: 120.h,
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(12.0),
+                  color: Colors.white,
+                ),
+              ),
+            );
+          },
+          imageBuilder: (context, imageProvider) => Container(
             width: 110.w,
             height: 120.h,
-            'https://img.freepik.com/premium-photo/3d-animation-style-white-background-doctor_911201-11196.jpg',
-            fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(12.0),
+              image: DecorationImage(
+                image: imageProvider,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         ),
+        // ClipRRect(
+        //   borderRadius: BorderRadius.circular(12.0),
+        //   child: Image.network(
+        //     width: 110.w,
+        //     height: 120.h,
+        //     'https://img.freepik.com/premium-photo/3d-animation-style-white-background-doctor_911201-11196.jpg',
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
         widthSpace(16),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
