@@ -15,10 +15,10 @@ class SpecializationsResponseModel {
 
 @JsonSerializable()
 class SpecializationsData {
-  final int id;
-  final String name;
+  int id;
+  String name;
   @JsonKey(name: 'doctors')
-  final List<DoctorsModel> doctorModel;
+  List<DoctorsModel> doctorModel;
 
   SpecializationsData(this.id, this.name, this.doctorModel);
 

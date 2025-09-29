@@ -4,6 +4,7 @@ import 'package:flutter_application/features/auth/data/models/login_request_body
 import 'package:flutter_application/features/auth/data/models/login_response_body.dart';
 import 'package:flutter_application/features/auth/data/models/register_request_body.dart';
 import 'package:flutter_application/features/auth/data/models/register_response_body.dart';
+import 'package:flutter_application/features/home/data/model/specializations_response_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api_services.g.dart';
@@ -21,4 +22,6 @@ abstract class ApiServices {
   Future<RegisterResponseBody> register(
     @Body() RegisterRequestBody registerRequestBody,
   );
+  @GET(ApiConstants.specialization)
+  Future<SpecializationsResponseModel> getSpecializationsIndex();
 }
