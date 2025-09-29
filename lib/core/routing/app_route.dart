@@ -7,6 +7,7 @@ import 'package:flutter_application/features/auth/ui/login_screen.dart';
 import 'package:flutter_application/features/auth/ui/register_screen.dart';
 import 'package:flutter_application/features/home/logic/home_cubit.dart';
 import 'package:flutter_application/features/home/ui/home_screen.dart';
+import 'package:flutter_application/features/home/ui/widgets/notification_widget.dart';
 import 'package:flutter_application/features/layout/ui/layout_screen.dart';
 import 'package:flutter_application/features/onBoarding/onBoarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,13 +40,10 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (context) => LayoutScreen(),
         );
-      // case Routes.home:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => HomeCubit(getIt())..getSpecializations(),
-      //       child: const HomeScreen(),
-      //     ),
-      //   );
+      case Routes.notification:
+        return MaterialPageRoute(
+          builder: (_) => const NotificationWidget(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(
